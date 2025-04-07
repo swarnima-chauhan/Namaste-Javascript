@@ -1,15 +1,11 @@
-var x=1;
-a();
-b();
-console.log(x);
 
-function a() {
+var a=10;
+function b(){
     var x=10;
-    console.log(x);
 }
 
-function b() {
-    var x=100;
-    console.log(x);
-}
+//all three lines below do the same work
+console.log(window.a);
+console.log(a);
+console.log(this.a);
 
