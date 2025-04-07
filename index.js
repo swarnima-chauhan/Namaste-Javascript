@@ -6,4 +6,3 @@ a=undefined;
 //loosely typed language
 a='hello';
 a=123;
-a='bjxhb';
