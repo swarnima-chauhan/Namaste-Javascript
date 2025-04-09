@@ -1,9 +1,30 @@
+//episode 14
 
-var a=10;
-//not agood practice
-a=undefined;
+//what is a Vallback function in JavaScript
 
-//loosely typed language
-a='hello';
-a=123;
-a="hgguik";
+setTimeout(function() {
+    console.log("timer");
+}, 5000);
+
+function x(y){
+    console.log("x");
+    y();
+}
+
+x(function y(){
+    console.log("y");
+})
+
+
+//JavaScript is a synchronous and single-threaded language
+
+//Blocking the main thread
+
+//Power of callback
+
+//Deep about EventListeners
+
+//Closures Demo with Event Listeners
+
+//Scope Demo with Event Listeners
+
