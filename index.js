@@ -1,6 +1,6 @@
 //episode 14
 
-//what is a Vallback function in JavaScript
+//what is a Callback function in JavaScript
 
 setTimeout(function() {
     console.log("timer");
@@ -27,4 +27,6 @@ x(function y(){
 //Closures Demo with Event Listeners
 
 //Scope Demo with Event Listeners
+
+//Garbage Collection & removeEventListeners
 
