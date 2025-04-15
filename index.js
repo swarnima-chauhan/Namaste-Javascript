@@ -28,3 +28,14 @@ x(function y(){
 
 //Scope Demo with Event Listeners
 
+//Garbage Collection & removeEventListeners
+
+//Garbage Collection & removeEventListeners
+
+function attachEventListener(){
+    let count=0;
+    document.getElementById("clickMe").addEventListener("click", function xyz(){
+        console.log("Button Clicked",++count);
+    })
+} 
+attachEventListener();
