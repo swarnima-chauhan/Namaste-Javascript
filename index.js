@@ -1,20 +1,6 @@
 //episode 14
 
-//what is a Vallback function in JavaScript
-
-setTimeout(function() {
-    console.log("timer");
-}, 5000);
-
-function x(y){
-    console.log("x");
-    y();
-}
-
-x(function y(){
-    console.log("y");
-})
-
+//what is a Callback function in JavaScript
 
 //JavaScript is a synchronous and single-threaded language
 
@@ -28,3 +14,12 @@ x(function y(){
 
 //Scope Demo with Event Listeners
 
+//Garbage Collection & removeEventListeners
+
+function attachEventListener(){
+    let count=0;
+    document.getElementById("clickMe").addEventListener("click", function xyz(){
+        console.log("Button Clicked",++count);
+    })
+} 
+attachEventListener();
