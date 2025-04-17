@@ -1,41 +1,15 @@
-//episode 14
+console.log("Start");
 
-//what is a Vallback function in JavaScript
+setTimeout(function cb(){
+    console.log("Callback");
+},5000);
 
-setTimeout(function() {
-    console.log("timer");
-}, 5000);
+console.log("End");
 
-function x(y){
-    console.log("x");
-    y();
+// million
+let startDate= new Date().getTime();
+let endDate= startDate;
+while(endDate<=startDate + 10000) {
+    endDate = new Date().getTime();
 }
-
-x(function y(){
-    console.log("y");
-})
-
-
-//JavaScript is a synchronous and single-threaded language
-
-//Blocking the main thread
-
-//Power of callback
-
-//Deep about EventListeners
-
-//Closures Demo with Event Listeners
-
-//Scope Demo with Event Listeners
-
-//Garbage Collection & removeEventListeners
-
-//Garbage Collection & removeEventListeners
-
-function attachEventListener(){
-    let count=0;
-    document.getElementById("clickMe").addEventListener("click", function xyz(){
-        console.log("Button Clicked",++count);
-    })
-} 
-attachEventListener();
+console.log("While expires");
