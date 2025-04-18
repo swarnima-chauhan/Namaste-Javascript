@@ -1,15 +1,27 @@
-console.log("Start");
+const radius=[3,1,2,4];
 
-setTimeout(function cb(){
-    console.log("Callback");
-},5000);
-
-console.log("End");
-
-// million
-let startDate= new Date().getTime();
-let endDate= startDate;
-while(endDate<=startDate + 10000) {
-    endDate = new Date().getTime();
+const area=function(radius){
+    return Math.PI*radius*radius;
 }
-console.log("While expires");
+
+const circumference = function(radius){
+    return 2*Math.PI*radius;
+}
+
+const diameter= function(radius){
+    return 2*radius;
+}
+
+const calculate= function(radius, logic){
+    const output=[];
+    for(i=0;i<radius.length;i++){
+        output.push(logic(radius[i]));
+    }
+    return output;
+}
+
+
+
+console.log(calculate(radius,area));
+console.log(calculate(radius,circumference));
+console.log(calculate(radius, diameter));
