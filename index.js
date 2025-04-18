@@ -1,43 +1,43 @@
-const radius=[3,1,2,4];
+const arr =[5,1,3,2,6];
 
-const area=function(radius){
-    return Math.PI*radius*radius;
+function double(i){
+    return 2*i;
 }
 
-const circumference = function(radius){
-    return 2*Math.PI*radius;
+function triple(i){
+    return 3*i;
 }
 
-const diameter= function(radius){
-    return 2*radius;
+function binary(i){
+    return (i>>>0).toString(2);
 }
-
 /*
-const calculate= function(radius, logic){
-    const output=[];
-    for(i=0;i<radius.length;i++){
-        output.push(logic(radius[i]));
-    }
-    return output;
-}
-
-console.log(calculate(radius,area));
-console.log(calculate(radius,circumference));
-console.log(calculate(radius, diameter));
+console.log(arr.map(double));
+console.log(arr.map(triple));
+console.log(arr.map(binary));
 */
 
-Array.prototype.calculate= function(logic){
-    const output=[];
-    for(i=0;i<this.length;i++){
-        output.push(logic(this[i]));
-    }
-    return output;
+function greaterthanfour(i){
+    if(i>=4)
+        return i;
 }
 
-console.log(radius.calculate(area));
-console.log(radius.calculate(circumference));
-console.log(radius.calculate(diameter));
+console.log(arr.map(greaterthanfour));
+console.log(arr);
+console.log(arr.filter(greaterthanfour));
+console.log(arr);
 
-console.log(radius.map(area));
+const users=[
+    {fName:"akshay", age:26},
+    {fName:"donald", age:75},
+    {fName:"elon", age:50},
+    {fName:"deepika", age:26}
+];
 
+const output=users.reduce(function(obj,user){
+    if(user.age<30)
+        obj.push(user.fName);
+    return obj;
+},[]);
+console.log(output);
 
