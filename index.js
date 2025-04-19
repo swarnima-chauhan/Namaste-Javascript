@@ -1,71 +1,21 @@
-const cart=["shoes","pants","kurta"];
+const p1=new Promise((resolve,reject)=>{
+    //setTimeout(()=>resolve("P1 success"),3000);
+    setTimeout(()=>reject("P1 fails"),3000);
+})
 
-createOrder(cart)
-  .then(function(orderId){
-    console.log(orderId);
-    return orderId;
-  })
-  .then(function(orderId){
-    return proceedToPayment(orderId);
-  })
-  .then(function(paymentInfo){
-    console.log(paymentInfo)
-    return showOrderSummary(paymentInfo);
-  })
-  .then(function(points){
-    console.log(points);
-    return updateWallet(points);
-  })
-  .then(function(walletBalance){
-    console.log(walletBalance);
-  })
-  
-  .catch(function(err){
-   console.log(err.message);
-  });
-    
-///Producer End
+const p2=new Promise((resolve,reject)=>{
+    //setTimeout(()=>resolve("P2 success"),1000);
+    setTimeout(()=>reject("P2 fails"),1000);
+})
 
-function createOrder(cart){
-    const pr=new Promise(function(resolve,reject){
-        //create an order
-        //validate cart
-        //orderId
-        if(!validateCart(cart)){
-            const err=new Error("Cart is not valid");
-            reject(err);
-        }
-        //logic for create order
-        const orderId="12345";
-        if(orderId){
-            resolve(orderId);
-        }
-    });
-    return pr;
-}
+const p3=new Promise((resolve,reject)=>{
+    //setTimeout(()=>resolve("P3 success"),2000);
+    setTimeout(()=>reject("P3 fails"),2000);
+})
 
-function validateCart(cart){
-    return true;
-}
-
-function proceedToPayment(orderId){
-    return new Promise(function(resolve,reject){
-        resolve(orderId/100)});
-}
-
-function showOrderSummary(paymentInfo){
-    return new Promise(function(resolve,reject){
-        if(paymentInfo){
-            resolve(paymentInfo+10)
-        }
-        else{
-            reject("wrong payment Info");
-        }
-    })
-}
-
-function updateWallet(points){
-    return new Promise(function(resolve,reject){
-        resolve(100-points)
-    })
-}
+Promise.any([p1,p2,p3])
+.then(res=>console.log(res))
+.catch(err=>{
+    console.error(err);
+    console.log(err.errors);
+});
