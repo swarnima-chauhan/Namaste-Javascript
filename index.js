@@ -9,12 +9,21 @@ createOrder(cart)
     return proceedToPayment(orderId);
   })
   .then(function(paymentInfo){
-    console.log(paymentInfo);
+    console.log(paymentInfo)
+    return showOrderSummary(paymentInfo);
   })
+  .then(function(points){
+    console.log(points);
+    return updateWallet(points);
+  })
+  .then(function(walletBalance){
+    console.log(walletBalance);
+  })
+  
   .catch(function(err){
-    console.log(err.message);
+   console.log(err.message);
   });
-   
+    
 ///Producer End
 
 function createOrder(cart){
@@ -41,7 +50,22 @@ function validateCart(cart){
 
 function proceedToPayment(orderId){
     return new Promise(function(resolve,reject){
-        resolve("Payment successful");
-    });
+        resolve(orderId/100)});
 }
 
+function showOrderSummary(paymentInfo){
+    return new Promise(function(resolve,reject){
+        if(paymentInfo){
+            resolve(paymentInfo+10)
+        }
+        else{
+            reject("wrong payment Info");
+        }
+    })
+}
+
+function updateWallet(points){
+    return new Promise(function(resolve,reject){
+        resolve(100-points)
+    })
+}
