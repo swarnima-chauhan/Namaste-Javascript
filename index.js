@@ -1,17 +1,12 @@
-const student={
-    name:"swarnima",
-    printName:function(){
-        console.log(this.name);
-    }
+let name={
+    firstName:"Akshay",
+    lastName:"Saini"
 }
 
-const student2={
-    name:"akshay"
+let printName=function(){
+    console.log(this.firstName+" "+this.lastName);
 }
 
-
-student.printName.call(student2);
-student.printName.apply(student2);
-let students= student.printName.bind(student2);
-console.log(students);
-students();
+let printMyName = printName.bind(name);
+console.log(printMyName);
+printMyName();
